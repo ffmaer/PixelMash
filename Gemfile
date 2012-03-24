@@ -7,7 +7,6 @@ gem 'rails', '3.0.7'
 
 #gem 'sqlite3'
 
-
 group :production, :staging do
   gem "pg"
 end

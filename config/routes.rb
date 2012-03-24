@@ -1,4 +1,9 @@
 Caption::Application.routes.draw do
+
+
+       match 'play' => 'contest#play'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
