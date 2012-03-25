@@ -7,29 +7,67 @@
 
 
 
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#vote1").click(function () {
 
 
-<div id="header"><a href="#"><div id="logo">Captions</div></a></div>
+            $.ajax({
+                type:'POST',
+                url:'<%= url_for :action => 'vote_left' , :id => @game.id%>',
+                success:function (text) {
+                    var data = $.parseJSON(text);
+
+
+                    $("#statsA").html("<strong>"+data[0].left+"</strong> votes");
+
+                    $("#statsB").html("<strong>"+data[0].right+"</strong> votes");
+
+                },
+                dataType:'text'
+
+            });
+
+        })
+
+
+    });
+
+
+</script>
+
+
+<div id="header"><a href="#">
+  <div id="logo">Captions</div>
+</a></div>
 
 <div id="outer">
-	<div id="vote_page_center" class="page_center">
-		<div id="vote_text" class="text">Which is better?</div>
-		<div id="images_vote_container">
-			<a href="#"><div id="vote1" class="button vote_button">This One!</div></a>
-			<a href="#"><div id="vote2" class="button vote_button">This One!</div></a>
-			<div id="vote_banner"><strong>Results</strong></div>
-			<br>
-			<br>
-			<br>
-			<div id="stats_curtain" class="stats"></div>
-			<div id="stats_container" class="stats">
-				<div id="statsA" class="stats_text"><strong>25</strong> votes</div>
-				<div id="statsB" class="stats_text"><strong>16</strong> votes</div>
-			</div>
+  <div id="vote_page_center" class="page_center">
+    <div id="vote_text" class="text">Which is better?</div>
+    <div id="images_vote_container">
+      <a href="#">
+        <div id="vote1" class="button vote_button">This One!</div>
+      </a>
+      <a href="#">
+        <div id="vote2" class="button vote_button">This One!</div>
+      </a>
 
-			<img id="imageA" class="vote_images" src="<%= @game.p1.url %>" />
-			<img id="imageB" class="vote_images" src="<%= @game.p2.url %>" />
-		</div>
-	</div>
+      <div id="vote_banner"><strong>Results</strong></div>
+      <br>
+      <br>
+      <br>
+
+      <div id="stats_curtain" class="stats"></div>
+      <div id="stats_container" class="stats">
+        <div id="statsA" class="stats_text"></div>
+        <div id="statsB" class="stats_text"></div>
+      </div>
+
+      <img id="imageA" class="vote_images" src="<%= @game.p1.url %>"/>
+      <img id="imageB" class="vote_images" src="<%= @game.p2.url %>"/>
+    </div>
+  </div>
 
 </div>

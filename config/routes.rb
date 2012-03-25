@@ -16,6 +16,8 @@ Caption::Application.routes.draw do
 
        match 'display' => 'display#display'
 
+       match 'vote_left' => 'display#vote_left'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

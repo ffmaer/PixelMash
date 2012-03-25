@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120325112347) do
+ActiveRecord::Schema.define(:version => 20120325132517) do
 
   create_table "games", :force => true do |t|
     t.datetime "created_at"
@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(:version => 20120325112347) do
     t.string   "player2"
     t.string   "draw1"
     t.string   "draw2"
-    t.integer  "vote1"
-    t.integer  "vote2"
+    t.integer  "vote1",           :default => 0
+    t.integer  "vote2",           :default => 0
     t.string   "p1_file_name"
     t.string   "p1_content_type"
     t.integer  "p1_file_size"
