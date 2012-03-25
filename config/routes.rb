@@ -1,22 +1,25 @@
 Caption::Application.routes.draw do
 
 
-       match 'play' => 'contest#play'
-       match 'update' => 'contest#update'
-       match 'save' => 'contest#save'
+  match 'play' => 'contest#play'
+  match 'update' => 'contest#update'
+  match 'save' => 'contest#save'
 
-       match 'show' => 'contest#show'
-       match 'new' => 'contest#new'
-       match 'create' => 'contest#create', :as => "test"
+  match 'show' => 'contest#show'
+  match 'new' => 'contest#new'
+  match 'create' => 'contest#create', :as => "test"
 
-       match 'start' => 'start#start'
+  match 'start' => 'start#start'
 
 
-       match 'enter_names' => 'start#enter_names'
+  match 'enter_names' => 'start#enter_names'
 
-       match 'display' => 'display#display'
+  match 'display' => 'display#display'
 
-       match 'vote_left' => 'display#vote_left'
+  match 'vote_left' => 'display#vote_left'
+
+
+  root :to => "start#start"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
