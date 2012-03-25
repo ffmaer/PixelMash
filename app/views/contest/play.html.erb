@@ -21,9 +21,19 @@
                 var img = document.getElementById(imageID);
                 img.src = newURL;
 
-                $.ajax({url: '<%= url_for :action => 'update' %>',
-                                            data: 'newImage=' + newURL,
-                                            dataType: 'script'});
+
+
+
+
+                $.ajax({
+                  type: 'POST',
+                  url: '<%= url_for :action => 'update' %>',
+                  data: 'newImage=' + newURL,
+
+                  dataType: 'script'
+                });
+
+
 
             }
         });

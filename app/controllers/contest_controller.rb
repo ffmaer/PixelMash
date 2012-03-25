@@ -20,7 +20,8 @@ class ContestController < ApplicationController
 
 
   p = Test.new
-  url = "http://ocdevel.com/sites/ocdevel.com/files/images/rails.png"
+  #url = "http://ocdevel.com/sites/ocdevel.com/files/images/rails.png"
+  url = params["newImage"]
   p.upload_image(url)
 
   end
