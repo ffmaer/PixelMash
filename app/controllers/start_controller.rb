@@ -2,7 +2,7 @@ class StartController < ApplicationController
 
   def start
 
-
+    cookies.delete :game_id
   end
 
   def enter_names

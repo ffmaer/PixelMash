@@ -28,6 +28,11 @@ class ContestController < ApplicationController
     end
 
 
+    if !@game.p1_file_name.nil? and !@game.p2_file_name.nil?
+      @game.completed=true
+      @game.save
+    end
+
     respond_to do |format|
       format.json { head :ok }
     end

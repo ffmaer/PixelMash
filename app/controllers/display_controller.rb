@@ -1,8 +1,7 @@
 class DisplayController < ApplicationController
 
-  before_filter :game_on
 
   def display
-    @game = Game.find(cookies[:game_id])
+    @game = Game.find(params[:id])
   end
 end

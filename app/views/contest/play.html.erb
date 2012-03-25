@@ -1,16 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
 <% img = @result["response"]["posts"][0]["photos"][0]["alt_sizes"][1]["url"] %>
 
 
@@ -35,17 +22,15 @@
             img.src = newURL;
 
 
-
-
             $.ajax({
-              type: 'POST',
-              url: '<%= url_for :action => 'update' %>',
-              data: 'newImage=' + newURL,
-                success: function(data) {
+                type:'POST',
+                url:'<%= url_for :action => 'update' %>',
+                data:'newImage=' + newURL,
+                success:function (data) {
 
-                                window.location.replace("<%= url_for :action => 'display', :controller => "display" %>");
-                            },
-              dataType: 'script'
+                    window.location.replace("<%= url_for :action => 'display', :controller => "display", :id => @game.id %>");
+                },
+                dataType:'script'
 
             });
 
