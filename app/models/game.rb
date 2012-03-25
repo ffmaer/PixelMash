@@ -1,7 +1,7 @@
 class Game < ActiveRecord::Base
 
-  has_attached_file :p1
-  has_attached_file :p2
+  has_attached_file :p1, :default_url => "/images/normal/loading.gif"
+  has_attached_file :p2, :default_url => "/images/normal/loading.gif"
 
   def upload_p1(url)
     begin

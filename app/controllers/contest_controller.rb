@@ -5,11 +5,7 @@ class ContestController < ApplicationController
 
   before_filter :game_on
 
-  def game_on
-    if cookies[:game_id].nil?
-      redirect_to :action => "start", :controller => "start"
-    end
-  end
+
 
   def play
 
