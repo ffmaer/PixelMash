@@ -7,3 +7,4 @@ tmp/
 .idea/workspace.xml
 .idea/misc.xml
 /db/*.sqlite3
+public/system/
