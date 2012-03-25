@@ -14,10 +14,10 @@ class StartController < ApplicationController
 
     game = Game.where(:player1 => params["p1"], :player2 => params["p2"]).last
 
-    if(game.nil?)
+    if (game.nil?)
       game = Game.where(:player1 => params["p2"], :player2 => params["p1"]).last
 
-      if(game.nil?)
+      if (game.nil?)
         new_game = true
 
       else
@@ -33,7 +33,7 @@ class StartController < ApplicationController
     else
 
       if game.completed?
-         new_game = true
+        new_game = true
       else
         order = "first"
       end
@@ -42,7 +42,21 @@ class StartController < ApplicationController
     end
 
     if new_game
-      game = Game.new(:player1 => params["p1"], :player2 => params["p2"])
+
+
+      api_key = "mdCP61q24Uz2z5vYdNIT1bdRKjsydnJ8CiVPEmFwyunHj7s4UL"
+      data = JSON.parse(open("http://api.tumblr.com/v2/blog/hacknyhack.tumblr.com/posts/photo?api_key="+api_key).read)
+
+
+      data = data["response"]["posts"]
+      @result = []
+      data.each do |d|
+        @result << d["photos"][0]["alt_sizes"][1]["url"]
+      end
+
+      pic = @result[rand(@result.size)]
+
+      game = Game.new(:player1 => params["p1"], :player2 => params["p2"], :pic => pic)
       game.save
     end
 

@@ -7,33 +7,11 @@ class ContestController < ApplicationController
 
 
 
-  def test
 
-    api_key = "mdCP61q24Uz2z5vYdNIT1bdRKjsydnJ8CiVPEmFwyunHj7s4UL"
-    data = JSON.parse(open("http://api.tumblr.com/v2/blog/hacknyhack.tumblr.com/posts/photo?api_key="+api_key).read)
-
-
-    data = data["response"]["posts"]
-    @result = []
-    data.each do |d|
-      @result << d["photos"][0]["alt_sizes"][1]["url"]
-    end
-
-  end
 
   def play
 
-    api_key = "mdCP61q24Uz2z5vYdNIT1bdRKjsydnJ8CiVPEmFwyunHj7s4UL"
-        data = JSON.parse(open("http://api.tumblr.com/v2/blog/hacknyhack.tumblr.com/posts/photo?api_key="+api_key).read)
 
-
-        data = data["response"]["posts"]
-        @result = []
-        data.each do |d|
-          @result << d["photos"][0]["alt_sizes"][1]["url"]
-        end
-
-    #@result = JSON.parse(open("http://api.tumblr.com/v2/blog/derekg.org/posts?id=7431599279&api_key=mdCP61q24Uz2z5vYdNIT1bdRKjsydnJ8CiVPEmFwyunHj7s4UL").read)
 
     @game = Game.find(cookies[:game_id])
 

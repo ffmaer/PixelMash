@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120325132517) do
+ActiveRecord::Schema.define(:version => 20120325150828) do
 
   create_table "games", :force => true do |t|
     t.datetime "created_at"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20120325132517) do
     t.integer  "p2_file_size"
     t.datetime "p2_updated_at"
     t.boolean  "completed"
+    t.string   "pic"
   end
 
   create_table "tests", :force => true do |t|
