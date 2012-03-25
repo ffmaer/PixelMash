@@ -1,0 +1,5 @@
+
+<%= form_for :test, @test, :url => test_path, :html => { :multipart => true } do |form| %>
+  <%= form.file_field :avatar %>
+    <%= form.submit %>
+<% end %>

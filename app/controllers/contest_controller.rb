@@ -23,4 +23,26 @@ class ContestController < ApplicationController
   end
 
 
+  def save
+
+
+
+  end
+
+
+  def show
+
+    @test = Test.find(1)
+
+
+  end
+
+  def new
+    @test = Test.new
+  end
+
+  def create
+    @test = Test.create( params[:test] )
+  end
+
 end

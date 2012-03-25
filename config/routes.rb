@@ -3,6 +3,11 @@ Caption::Application.routes.draw do
 
        match 'play' => 'contest#play'
        match 'update' => 'contest#update'
+       match 'save' => 'contest#save'
+
+       match 'show' => 'contest#show'
+       match 'new' => 'contest#new'
+       match 'create' => 'contest#create', :as => "test"
 
 
   # The priority is based upon order of creation:

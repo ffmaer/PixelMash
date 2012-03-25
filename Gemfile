@@ -8,6 +8,9 @@ gem 'rails', '3.0.7'
 #gem 'sqlite3'
 
 gem "rake"
+gem "paperclip", "~> 2.7"
+
+#gem 'aws-s3'
 
 group :production, :staging do
   gem "pg"
