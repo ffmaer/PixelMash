@@ -6,25 +6,27 @@ class ContestController < ApplicationController
 
   def play
 
-  @result = JSON.parse(open("http://api.tumblr.com/v2/blog/derekg.org/posts?id=7431599279&api_key=mdCP61q24Uz2z5vYdNIT1bdRKjsydnJ8CiVPEmFwyunHj7s4UL").read)
+    @result = JSON.parse(open("http://api.tumblr.com/v2/blog/derekg.org/posts?id=7431599279&api_key=mdCP61q24Uz2z5vYdNIT1bdRKjsydnJ8CiVPEmFwyunHj7s4UL").read)
 
 
-  @test = Test.find(1)
+    @test = Test.find(1)
 
 
   end
 
 
   def update
-    #Test.create([{ :data => 'good' }])
-    @test = Test.find(params['id'])
-    @test.update_attributes(:data => "smile")
-    #@test.save!
+
+
+
+  p = Test.new
+  url = "http://ocdevel.com/sites/ocdevel.com/files/images/rails.png"
+  p.upload_image(url)
+
   end
 
 
   def save
-
 
 
   end
@@ -42,7 +44,9 @@ class ContestController < ApplicationController
   end
 
   def create
-    @test = Test.create( params[:test] )
+    @test = Test.create(params[:test])
   end
+
+
 
 end

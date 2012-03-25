@@ -13,13 +13,18 @@
 <!-- Instantiate Feather -->
 <script type="text/javascript">
         var featherEditor = new Aviary.Feather({
-            apiKey: '',
+            apiKey: '9f8c66cd2',
             apiVersion: 2,
             tools: 'all',
             appendTo: '',
             onSave: function(imageID, newURL) {
                 var img = document.getElementById(imageID);
                 img.src = newURL;
+
+                $.ajax({url: '<%= url_for :action => 'update' %>',
+                                            data: 'newImage=' + newURL,
+                                            dataType: 'script'});
+
             }
         });
 
@@ -38,6 +43,8 @@
 
 <!-- Add an edit button, passing the HTML id of the image and the public URL ot the image -->
 <p><input type="image" src="http://advanced.aviary.com/images/feather/edit-photo.png" value="Edit photo" onclick="return launchEditor('image1', 'http://images.aviary.com/imagesv5/feather_default.jpg');" /></p>
+
+
 
 
 <%= image_tag(@result["response"]["posts"][0]["photos"][0]["alt_sizes"][0]["url"]) %>

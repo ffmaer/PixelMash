@@ -11,7 +11,7 @@ gem "rake"
 gem "paperclip", "~> 2.7"
 
 #gem 'aws-s3'
-
+gem "rest-open-uri"
 group :production, :staging do
   gem "pg"
 end
