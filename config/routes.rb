@@ -9,6 +9,12 @@ Caption::Application.routes.draw do
        match 'new' => 'contest#new'
        match 'create' => 'contest#create', :as => "test"
 
+       match 'start' => 'start#start'
+
+
+       match 'enter_names' => 'start#enter_names'
+
+       match 'display' => 'display#display'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

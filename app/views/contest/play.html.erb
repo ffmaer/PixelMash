@@ -7,6 +7,10 @@
 
 
 
+<hr/>
+
+
+
 <!-- Load Feather code -->
 <script type="text/javascript" src="http://feather.aviary.com/js/feather.js"></script>
 
@@ -29,9 +33,14 @@
                   type: 'POST',
                   url: '<%= url_for :action => 'update' %>',
                   data: 'newImage=' + newURL,
+                    success: function(data) {
 
+                                    window.location.replace("<%= url_for :action => 'display', :controller => "display" %>");
+                                },
                   dataType: 'script'
+
                 });
+
 
 
 
