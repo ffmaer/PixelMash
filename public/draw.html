@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<link href="drawstyle.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="jquery-1.7.1.js"></script>
+	<script type="text/javascript" src="http://feather.aviary.com/js/feather.js"></script>
+	<!--
+	<script type="text/JavaScript" src="drawscripts.js"></script>
+	-->
+	<script src="drawscripts.js"></script>
+
+	<!-- Instantiate Feather -->
+	<script type="text/javascript">
+	        var featherEditor = new Aviary.Feather({
+	            apiKey: '2cf3c879b',
+	            apiVersion: 2,
+	            tools: 'effects,stickers,crop,draw,text',
+	            appendTo: '',
+	            onSave: function(imageID, newURL) {
+	                var img = document.getElementById(imageID);
+	                img.src = newURL;
+	            }
+	        });
+
+	        function launchEditor(id, src) {
+	            featherEditor.launch({
+	                image: id,
+	                url: src
+	            });
+	            return false;
+	        }
+	</script>
+</head>
+
+<body>
+
+	<div id="curtain" onclick="return launchEditor('image1', 'https://p.twimg.com/AoypmbtCAAA4EYh.jpg:large');">
+		<div id="anim_text_container">
+			<div id="draw_click_start" class="anim_text text">Click to start</div>
+			<div id="anim1" class="anim_text text">Get ready...</div>
+			<div id="anim2" class="anim_text text">Get pumped...</div>
+			<div id="anim3" class="anim_text text">Make them laugh...</div>
+			<div id="anim4" class="anim_text text">Make them cry...</div>
+			<div id="anim5" class="anim_text text">Don't choke!</div>
+			<div id="anim6" class="anim_text text">CAPTION!</div>
+		</div>
+	</div>
+
+	<div id="header"></div>
+
+	<div id="outer">
+		<div id="draw_page_center" class="page_center">
+			<div id="picture_container">
+				<div id="injection_site" class="picture"></div>
+
+				<img id="image1" class="picture" src="https://p.twimg.com/AoypmbtCAAA4EYh.jpg:large" />
+
+
+				
+			</div>
+		</draw>
+	</div>
+</body>
+
+
+
+
+
+</html>

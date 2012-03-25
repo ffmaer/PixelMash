@@ -1,90 +1,94 @@
-<h1>here we go</h1>
-
-<%= @result %>
-
-<hr/>
 
 
 
 
-<hr/>
 
 
 
-<!-- Load Feather code -->
-<script type="text/javascript" src="http://feather.aviary.com/js/feather.js"></script>
+
+
+
+
+
+
+<% img = @result["response"]["posts"][0]["photos"][0]["alt_sizes"][1]["url"] %>
+
+
+
+
+<% content_for :head do %>
+    <%= javascript_include_tag "drawscripts" %>
+    <%= javascript_include_tag "http://feather.aviary.com/js/feather.js" %>
+    <%= stylesheet_link_tag "drawstyle" %>
+<% end %>
+
 
 <!-- Instantiate Feather -->
 <script type="text/javascript">
-        var featherEditor = new Aviary.Feather({
-            apiKey: '9f8c66cd2',
-            apiVersion: 2,
-            tools: 'all',
-            appendTo: '',
-            onSave: function(imageID, newURL) {
-                var img = document.getElementById(imageID);
-                img.src = newURL;
+    var featherEditor = new Aviary.Feather({
+        apiKey:'2cf3c879b',
+        apiVersion:2,
+        tools:'effects,stickers,crop,draw,text',
+        appendTo:'',
+        onSave:function (imageID, newURL) {
+            var img = document.getElementById(imageID);
+            img.src = newURL;
 
 
 
 
+            $.ajax({
+              type: 'POST',
+              url: '<%= url_for :action => 'update' %>',
+              data: 'newImage=' + newURL,
+                success: function(data) {
 
-                $.ajax({
-                  type: 'POST',
-                  url: '<%= url_for :action => 'update' %>',
-                  data: 'newImage=' + newURL,
-                    success: function(data) {
+                                window.location.replace("<%= url_for :action => 'display', :controller => "display" %>");
+                            },
+              dataType: 'script'
 
-                                    window.location.replace("<%= url_for :action => 'display', :controller => "display" %>");
-                                },
-                  dataType: 'script'
-
-                });
-
-
-
-
-            }
-        });
-
-        function launchEditor(id, src) {
-            featherEditor.launch({
-                image: id,
-                url: src
             });
-            return false;
+
+
         }
-</script>
-
-<div id="injection_site"></div>
-
-<img id="image1" src="http://images.aviary.com/imagesv5/feather_default.jpg"/>
-
-<!-- Add an edit button, passing the HTML id of the image and the public URL ot the image -->
-<p><input type="image" src="http://advanced.aviary.com/images/feather/edit-photo.png" value="Edit photo" onclick="return launchEditor('image1', 'http://images.aviary.com/imagesv5/feather_default.jpg');" /></p>
-
-
-
-
-<%= image_tag(@result["response"]["posts"][0]["photos"][0]["alt_sizes"][0]["url"]) %>
-
-<div id="content">some texts here</div>
-<%= link_to "Visit Other Site", "http://ffm.cn/" %>
-
-<!--<%= button_to_function "Greeting", "alert('Hello world!')", :class => "ok" %>-->
-
-<form id="good">
-  <input type="submit">
-</form>
-<script type="text/javascript">
-
-
-    $(function($) {
-        $("#good").submit(function() {
-            $.ajax({url: '<%= url_for :action => 'update', :id => @test.id %>',
-            data: 'selected=' + this.value,
-            dataType: 'script'})
-        });
     });
 
+    function launchEditor(id, src) {
+        featherEditor.launch({
+            image:id,
+            url:src
+        });
+        return false;
+    }
 </script>
+</head>
+
+
+<div id="curtain" onclick="return launchEditor('image1', '<%= img %>');">
+  <div id="anim_text_container">
+    <div id="draw_click_start" class="anim_text text">Click to start</div>
+    <div id="anim1" class="anim_text text">Get ready...</div>
+    <div id="anim2" class="anim_text text">Get pumped...</div>
+    <div id="anim3" class="anim_text text">Make them laugh...</div>
+    <div id="anim4" class="anim_text text">Make them cry...</div>
+    <div id="anim5" class="anim_text text">Don't choke!</div>
+    <div id="anim6" class="anim_text text">CAPTION!</div>
+  </div>
+</div>
+
+<div id="header"><a href="#">
+  <div id="logo">Captions</div>
+</a></div>
+
+<div id="outer">
+  <div id="draw_page_center" class="page_center">
+    <div id="picture_container">
+      <div id="injection_site" class="picture"></div>
+
+      <img id="image1" class="picture" src="<%= img %>"/>
+
+
+    </div>
+  </div>
+</div>
+

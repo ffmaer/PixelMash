@@ -1,11 +1,44 @@
+<% content_for :head do %>
+    <%= javascript_include_tag "drawscripts" %>
+    <%= javascript_include_tag "http://feather.aviary.com/js/feather.js" %>
+    <%= stylesheet_link_tag "drawstyle" %>
+<% end %>
+
 
 <%= form_tag :action => 'enter_names' do %>
 
-    <h1>Your Name</h1>
 
-    <%= text_field_tag "p1" %>
-    <h1>Your Buddy's Name</h1>
-    <%= text_field_tag "p2" %>
 
-<%= submit_tag %>
+    <div id="header"></div>
+
+    <div id="start_curtain" class="start_animation">
+      <div id="color_container" class="start_animation">
+        <div id="blue" class="start_animation colors"></div>
+        <div id="green" class="start_animation colors"></div>
+        <div id="pink" class="start_animation colors"></div>
+        <div id="yellow" class="start_animation colors"></div>
+        <div id="start_text" class="start_animation">Captions</div>
+      </div>
+
+    </div>
+
+    <div id="outer">
+
+      <div id="un_form" class="page_center un_form_style">
+        <div id="un_input_label_1" class="text un_form">Your username</div>
+        <input id="p1" class="un_form" name="p1" type="text"/>
+        <br><br>
+        <input type="button" id="un_form_submit" class="button un_form" value="Next"/>
+      </div>
+
+      <div id="opponent_form" class="page_center un_form_style" name="opponent">
+        <div id="un_input_label_2" class="text un_form">Opponent's username</div>
+        <input id="p2" class="un_form" name="p2" type="text"/>
+        <br><br>
+        <input type="submit" id="opponent_form_submit" class="button un_form" value="Start Captioning"/>
+      </div>
+
+    </div>
+
+
 <% end %>
