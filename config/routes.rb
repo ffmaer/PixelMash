@@ -2,6 +2,7 @@ Caption::Application.routes.draw do
 
 
        match 'play' => 'contest#play'
+       match 'update' => 'contest#update'
 
 
   # The priority is based upon order of creation:

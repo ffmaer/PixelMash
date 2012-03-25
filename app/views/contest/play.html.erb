@@ -4,3 +4,24 @@
 
 <hr/>
 <%= image_tag(@result["response"]["posts"][0]["photos"][0]["alt_sizes"][0]["url"]) %>
+
+<div id="content">some texts here</div>
+<%= link_to "Visit Other Site", "http://ffm.cn/" %>
+
+<!--<%= button_to_function "Greeting", "alert('Hello world!')", :class => "ok" %>-->
+
+<form id="good">
+  <input type="submit">
+</form>
+<script type="text/javascript">
+
+
+    $(function($) {
+        $("#good").submit(function() {
+            $.ajax({url: '<%= url_for :action => 'update', :id => @test.id %>',
+            data: 'selected=' + this.value,
+            dataType: 'script'})
+        });
+    });
+
+</script>
