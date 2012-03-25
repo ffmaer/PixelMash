@@ -321,6 +321,14 @@ a {text-decoration: none;}
 #imageA {float: left; margin-left: 45px;}
 #imageB {float: right; margin-right: 45px;}
 
+#vote_name1 {
+    float: left; margin-left: 190px;
+}
+
+#vote_name2 {
+    float: right; margin-right: 190px;
+}
+
 #vote_banner {
 
 	width: 100%;
@@ -385,5 +393,22 @@ a {text-decoration: none;}
 	float: right; margin-top: 100px; margin-right: 190px; z-index: 51;
 }
 
+
+
+
+/* WAITING*/
+#waiting_loader{
+	width: 200px;
+	height: 100px;
+	position: absolute;
+
+	right: 190px;
+	margin-top: 100px;
+
+}
+
+#waiting_text {
+	padding-left: 3px;
+}
 
 

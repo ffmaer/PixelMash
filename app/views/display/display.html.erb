@@ -21,9 +21,9 @@
                     var data = $.parseJSON(text);
 
 
-                    $("#statsA").html("<strong>"+data[0].left+"</strong> votes");
+                    $("#statsA").html("<strong>" + data[0].left + "</strong> votes");
 
-                    $("#statsB").html("<strong>"+data[0].right+"</strong> votes");
+                    $("#statsB").html("<strong>" + data[0].right + "</strong> votes");
 
                 },
                 dataType:'text'
@@ -36,23 +36,23 @@
         $("#vote2").click(function () {
 
 
-                    $.ajax({
-                        type:'POST',
-                        url:'<%= url_for :action => 'vote_right' , :id => @game.id%>',
-                        success:function (text) {
-                            var data = $.parseJSON(text);
+            $.ajax({
+                type:'POST',
+                url:'<%= url_for :action => 'vote_right' , :id => @game.id%>',
+                success:function (text) {
+                    var data = $.parseJSON(text);
 
 
-                            $("#statsA").html("<strong>"+data[0].left+"</strong> votes");
+                    $("#statsA").html("<strong>" + data[0].left + "</strong> votes");
 
-                            $("#statsB").html("<strong>"+data[0].right+"</strong> votes");
+                    $("#statsB").html("<strong>" + data[0].right + "</strong> votes");
 
-                        },
-                        dataType:'text'
+                },
+                dataType:'text'
 
-                    });
+            });
 
-                })
+        })
 
 
     });
@@ -61,9 +61,6 @@
 </script>
 
 
-<div id="header"><a href="#">
-  <div id="logo">Captions</div>
-</a></div>
 
 <div id="outer">
   <div id="vote_page_center" class="page_center">
@@ -76,7 +73,10 @@
         <div id="vote2" class="button vote_button">This One!</div>
       </a>
 
-      <div id="vote_banner"><strong>Results</strong></div>
+      <div id="vote_banner">
+        <div id="vote_name1"><strong><%= @game.player1 %></strong></div>
+        <div id="vote_name2"><strong><%= @game.player2 %></strong></div>
+      </div>
       <br>
       <br>
       <br>
@@ -88,8 +88,27 @@
       </div>
 
       <img id="imageA" class="vote_images" src="<%= @game.p1.url %>"/>
-      <img id="imageB" class="vote_images" src="<%= @game.p2.url %>"/>
+
+      <% if @game.p2_file_name.nil? %>
+
+
+          <!-- WAITING HTML-->
+
+          <div id="waiting_loader">
+            <div id="waiting_text" class="text">Waiting for Opponent...</div>
+            <img id="waiting_bar" src="images/loader.gif"/>
+          </div>
+
+          <!-- /WAITING -->
+
+      <% else %>
+          <img id="imageB" class="vote_images" src="<%= @game.p2.url %>"/>
+
+      <% end %>
+
+
     </div>
   </div>
+
 
 </div>
