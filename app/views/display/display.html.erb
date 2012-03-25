@@ -33,6 +33,28 @@
         })
 
 
+        $("#vote2").click(function () {
+
+
+                    $.ajax({
+                        type:'POST',
+                        url:'<%= url_for :action => 'vote_right' , :id => @game.id%>',
+                        success:function (text) {
+                            var data = $.parseJSON(text);
+
+
+                            $("#statsA").html("<strong>"+data[0].left+"</strong> votes");
+
+                            $("#statsB").html("<strong>"+data[0].right+"</strong> votes");
+
+                        },
+                        dataType:'text'
+
+                    });
+
+                })
+
+
     });
 
 

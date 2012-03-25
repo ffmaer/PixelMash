@@ -17,6 +17,10 @@ Caption::Application.routes.draw do
   match 'display' => 'display#display'
 
   match 'vote_left' => 'display#vote_left'
+  match 'vote_right' => 'display#vote_right'
+
+
+  match 'test' => 'contest#test'
 
 
   root :to => "start#start"
