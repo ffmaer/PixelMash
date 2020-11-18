@@ -1,0 +1,9 @@
+# PixelMash
+
+A hackathon project
+
+http://pixelmash.herokuapp.com/
+
+Spring 2012 hackNY Student Hackathon
+
+https://www.flickr.com/photos/hackny/collections/72157629720682299/
