@@ -2,7 +2,8 @@
 
 A Spring 2012 hackNY Student Hackathon (March 24th-25th) project
 
-http://pixelmash.herokuapp.com/
+http://pixelmash.herokuapp.com/ (It's probably not working anymore
+Sorry!
 
 
 https://www.flickr.com/photos/hackny/collections/72157629720682299/
