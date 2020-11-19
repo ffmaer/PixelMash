@@ -1,10 +1,9 @@
 # PixelMash
 
-A hackathon project
+A Spring 2012 hackNY Student Hackathon (March 24th-25th) project
 
 http://pixelmash.herokuapp.com/
 
-Spring 2012 hackNY Student Hackathon
 
 https://www.flickr.com/photos/hackny/collections/72157629720682299/
 
